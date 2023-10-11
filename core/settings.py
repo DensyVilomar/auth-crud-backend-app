@@ -189,12 +189,12 @@ DJOSER = {
         'http://localhost:8000/google',
         'http://localhost:8000/facebook'
     ],
-    # 'SERIALIZERS': {
-    #     'user_create': 'apps.users.serializers.UserCreateSerializer',
-    #     'user': 'apps.users.serializers.UserCreateSerializer',
-    #     'current_user': 'apps.users.serializers.UserCreateSerializer',
-    #     'user_delete': 'djoser.serializers.UserDeleteSerializer',
-    # },
+    'SERIALIZERS': {
+        'user_create': 'apps.users.serializers.UserCreateSerializer',
+        'user': 'apps.users.serializers.UserCreateSerializer',
+        'current_user': 'apps.users.serializers.UserCreateSerializer',
+        'user_delete': 'djoser.serializers.UserDeleteSerializer',
+    },
 }
 
 DOMAIN = 'localhost:5173'
