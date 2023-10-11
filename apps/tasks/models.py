@@ -10,3 +10,6 @@ class Task(models.Model):
     deadline = models.DateField(
         blank=True, null=True, auto_now=False, auto_now_add=False)
     creator = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.title
