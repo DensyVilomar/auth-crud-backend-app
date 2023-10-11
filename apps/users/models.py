@@ -1,6 +1,7 @@
 import uuid
 from datetime import date
 from django.db import models
+from django.utils import timezone
 from django.dispatch import receiver
 from django.db.models.signals import pre_save
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
@@ -42,6 +43,9 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+
+    date_joined = models.DateTimeField(
+        default=timezone.now, auto_now=False, auto_now_add=False)
 
     date_of_birth = models.DateField(auto_now=False, auto_now_add=False)
     age = models.IntegerField(null=True, blank=True)
