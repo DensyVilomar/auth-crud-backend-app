@@ -71,14 +71,3 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self) -> str:
         return self.email
-
-
-### SIGNALS ###
-
-@receiver(pre_save, sender=UserAccount)
-def calc_age(sender, instance, **kwargs):
-    if instance.date_of_birth:
-        today = date.today()
-        age = today.year - instance.date_of_birth.year - ((today.month, today.day) <
-                                                          (instance.date_of_birth.month, instance.date_of_birth.day))
-        instance.age = age
