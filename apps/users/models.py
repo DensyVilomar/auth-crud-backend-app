@@ -1,9 +1,6 @@
 import uuid
-from datetime import date
 from django.db import models
 from django.utils import timezone
-from django.dispatch import receiver
-from django.db.models.signals import pre_save
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 
 # Create your models here.
@@ -39,7 +36,6 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True)
 
     email = models.EmailField(max_length=254, unique=True)
-    username = models.CharField(max_length=50, unique=True)
 
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -57,7 +53,6 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = [
-        'username',
         'first_name',
         'last_name',
         'date_of_birth',
